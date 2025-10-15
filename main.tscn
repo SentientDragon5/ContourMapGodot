@@ -39,3 +39,10 @@ texture = ExtResource("2_h2yge")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_h2yge")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 240.0
+offset_bottom = 23.0
+text = "wasd to move, q and e to zoom"
