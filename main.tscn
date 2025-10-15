@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dx1liv7ttxy5e"]
+
+[ext_resource type="Texture2D" uid="uid://cbh1ecltrvwbp" path="res://santa_cruz_satellite.png" id="1_1bvp3"]
+[ext_resource type="Shader" uid="uid://duld05kixjkdy" path="res://contours.gdshader" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://gic3s7w6qblk" path="res://heightmapper-1760481930590.png" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bc6vlc1xfn1te" path="res://cam_controller.gd" id="3_h2yge"]
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
+width = 256
+height = 256
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+shader = ExtResource("1_h2yge")
+shader_parameter/line_color = Color(0.865507, 0.450686, 0.569311, 1)
+shader_parameter/contour_levels = 9.081
+shader_parameter/line_thickness = 0.55
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bg" type="Sprite2D" parent="."]
+scale = Vector2(50, 50)
+texture = SubResource("GradientTexture2D_lquwl")
+
+[node name="Heightmapper-1760481930591" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-7, -176)
+scale = Vector2(1.23, 1.23)
+texture = ExtResource("1_1bvp3")
+
+[node name="Heightmapper-1760481930590" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1bvp3")
+position = Vector2(2, 0)
+texture = ExtResource("2_h2yge")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_h2yge")
